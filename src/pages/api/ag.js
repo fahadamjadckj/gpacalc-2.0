@@ -13,7 +13,7 @@ export default async function handler(req, res) {
   });
 
   let page = await browser.newPage();
-  await page.goto('https://www.wikipedia.org/');
+  await page.goto('http://lms.uaf.edu.pk/login/index.php')
 
   // await page.type('#REG', '2020-ag-8322');
 
