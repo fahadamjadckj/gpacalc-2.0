@@ -12,6 +12,7 @@ export default async function handler(req, res) {
     headless: false,
   });
 
+  let page = await browser.newPage();
   await page.goto('http://lms.uaf.edu.pk/login/index.php')
 
   await page.type('#REG', '2020-ag-8322');
