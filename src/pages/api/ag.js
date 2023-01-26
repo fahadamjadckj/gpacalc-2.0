@@ -13,34 +13,34 @@ export default async function handler(req, res) {
   });
 
   let page = await browser.newPage();
-  await page.goto('http://lms.uaf.edu.pk/login/index.php')
+  await page.goto('https://www.wikipedia.org/');
 
-  await page.type('#REG', '2020-ag-8322');
+  // await page.type('#REG', '2020-ag-8322');
 
-  await Promise.all([
-    page.click('input[value=Result]'),
-    page.waitForNavigation(),
-  ]);
+  // await Promise.all([
+  //   page.click('input[value=Result]'),
+  //   page.waitForNavigation(),
+  // ]);
 
-  let data = await page.evaluate(() => {
-    let values = []
-    let tableRows = document.querySelectorAll('tr')
+  // let data = await page.evaluate(() => {
+  //   let values = []
+  //   let tableRows = document.querySelectorAll('tr')
 
-    tableRows.forEach((row) => {
-      let children = {}
-      let index = 0
-      row.childNodes.forEach((child) => {
-        if (child.innerText != null) {
-          children[index] = child.innerText
-          index++
-        }
-      })
-      values.push(children)
-    })
+  //   tableRows.forEach((row) => {
+  //     let children = {}
+  //     let index = 0
+  //     row.childNodes.forEach((child) => {
+  //       if (child.innerText != null) {
+  //         children[index] = child.innerText
+  //         index++
+  //       }
+  //     })
+  //     values.push(children)
+  //   })
 
-    return values
-  });
+  //   return values
+  // });
 
 
-  res.status(200).json({data: data});
+  res.status(200).json({data: 'yes'});
 }
